@@ -1,7 +1,8 @@
 'use strict';
 
-chrome.runtime.onInstalled.addListener(details => {
-  console.log('previousVersion', details.previousVersion);
-});
+var queryInfo = {
+  windowId: chrome.windows.WINDOW_ID_CURRENT
+};
 
-console.log('\'Allo \'Allo! Event Page');
+chrome.tabs.query(queryInfo, tabs => {
+});
