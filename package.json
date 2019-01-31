@@ -4,9 +4,17 @@
   "engines": {
     "node": ">=0.8.0"
   },
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack-dev-server",
+    "lint": "yarn run tsc && yarn run tslint",
+    "tslint": "tslint --project tsconfig.json",
+    "tslint-fix": "tslint --fix --project tsconfig.json"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
+    "@types/chrome": "^0.0.78",
     "babel-loader": "^8.0.5",
     "prettier": "^1.16.3",
     "ts-loader": "^5.3.3",
