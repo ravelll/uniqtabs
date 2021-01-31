@@ -1,7 +1,7 @@
 {
   "name": "uniqtabs",
   "version": "0.0.1",
-  "description": "A Chrome extension that resolves duplication in opening tabs.",
+  "description": "A Chrome extension that close duplicatedly opening tabs.",
   "author": "ravelll",
   "license": "MIT"
 }
