@@ -1,7 +1,12 @@
 {
   "name": "uniqtabs",
   "version": "0.0.1",
+  "manifest_version": 3,
   "description": "A Chrome extension that resolves duplication in opening tabs.",
-  "author": "ravelll",
-  "license": "MIT"
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "permissions": [
+    "tabs"
+  ]
 }
