@@ -1,13 +1,13 @@
-const queryInfo = {
-  windowId: chrome.windows.WINDOW_ID_CURRENT
-}
-
-chrome.browserAction.onClicked.addListener(async (_) => {
-  await chrome.tabs.query(queryInfo, (tabs) => {
-    for (let i = 0; i < tabs.length - 1; ++i) {
-      if (tabs[i].url === tabs[i + 1].url) {
-        chrome.tabs.remove(tabs[i + 1].id)
-      }
-    }
+chrome.browserAction.onClicked.addListener((_) => {
+  chrome.tabs.query({ windowId: chrome.windows.WINDOW_ID_CURRENT }, async (tabs) => {
+    const openedURLs = [...new Set(tabs.map((t) => t.url))]
+    openedURLs.forEach((url) => {
+      tabs.filter((t) => t.url === url).forEach((t, i) => {
+        // Close duplicated tabs except first one
+        if (i > 0) {
+          chrome.tabs.remove(t.id)
+        }
+      })
+    })
   })
 })
